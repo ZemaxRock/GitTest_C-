@@ -1,0 +1,3 @@
+﻿  源.cpp
+D:\200-Study\C++Learning\C++Learning\C++Learning\源.cpp(10,15): warning C4305: “初始化”: 从“double”到“float”截断
+  C++Learning.vcxproj -> D:\200-Study\C++Learning\C++Learning\x64\Debug\C++Learning.exe
