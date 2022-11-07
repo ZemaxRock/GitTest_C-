@@ -1,5 +1,7 @@
 #include <iostream>
 using namespace std;
+//常量
+#define PI = 3.1415926
 
 int main() {
 	cout << "Hello World" << endl;
@@ -11,8 +13,13 @@ int main() {
 	char d = 'a';
 	string e = "c++";
 	bool f = true;
-
+	
 	cout << a << endl;
 	cout << "这是一个浮点数: " << b << "\n对吧！" << endl;
+	
+	//常量
+	const int E = 2.718;
+
+
 	return 0;
 }
