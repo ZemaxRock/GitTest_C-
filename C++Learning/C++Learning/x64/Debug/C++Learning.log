@@ -1,4 +1,2 @@
 ﻿  源.cpp
-D:\200-Study\C++Learning\C++Learning\C++Learning\源.cpp(35,15): warning C4305: “初始化”: 从“double”到“float”截断
-D:\200-Study\C++Learning\C++Learning\C++Learning\源.cpp(52,16): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
   C++Learning.vcxproj -> D:\200-Study\C++Learning\C++Learning\x64\Debug\C++Learning.exe

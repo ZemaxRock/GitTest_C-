@@ -1,7 +1,7 @@
 #include <iostream>
 #include<string>
-//导入string库,c++字符串部分函数由此引用
 #include<cmath>
+//导入string库,c++字符串部分函数由此引用
 //数学库 sqrt() round()
 
 using namespace std;
@@ -28,14 +28,108 @@ int One(int a, int b = 10) {
 		return b;
 	}
 }
-
-//用户输入
-void input(int x) {
+	void input(int x) {
 	cin >> x;
 	cout << x;
 }
 
+	class Car {
+	public :
+		int x;
+		double y;
+		string name = "Hello";
+		//类方法
+		void Display() {
+			cout << "x:" << x << "  y:" << y << "  name:" << name << endl;
+		}
+		void Display2();
+	};
+	//Outside 类外的方法
+	void Car::Display2() {
+		cout << "Hello World"<<endl;
+	}
+	
+	//构造函数和析构函数
+	class Student 
+	{
+	public:
+		string name;
+		string ID;
+		Student(string x, string y) {
+			cout << "这是构造函数捏" << endl;
+			name = x;
+			ID = y;
+		}
+		~Student() {
+			cout << "这是析构函数捏" << endl;
+		}
+		void Display() {
+			cout << name << "\n" << ID << endl;
+		}
+
+	};
+	//封装 get set
+	class Food {
+		string name;
+		string much;
+	public:
+		void SetN(string _N) {
+			name = _N;
+		}
+		string GetN() {
+			return name;
+		}
+
+		void SetM(string _M) {
+			much = _M;
+		}
+		string GetM() {
+			return much;
+		}
+	};
+	//继承
+	class Shape {
+	protected:
+		int width;
+		int height;
+
+	public:
+		void setWidth(int w) {
+			width = w;
+		}
+		void setHeight(int h) {
+			height = h;
+		}
+	};
+	class Rectangle : public Shape {
+	public:
+		int getArea() {
+			return (width * height);
+		}
+	};
+	//多态 
+	class Animal {
+	public :
+		 void animalSound() {
+			cout << "The animal make a sound" << endl;
+		}
+	};
+	class Cat : public Animal {
+	public:
+		void animalSound() {
+			cout << "The cat: miao miao" << endl;
+		}
+	};
+	class Dog : public Animal {
+	public:
+		void animalSound() {
+			cout << "The dog: wang wang" << endl;
+		}
+	};
 int main() {
+
+#pragma region BaseTest
+#ifdef BASE
 	cout << "Hello World" << endl;
 	cout << "123";
 	//变量
@@ -97,5 +191,35 @@ int main() {
 	//用户输入
 	int numX = 0;
 	input(numX);
+#endif  //BASE
+#pragma endregion
+	
+#if 0
+	//类实例
+	Car car;
+	car.x = 13;
+	cin >> car.y;
+	car.Display();
+	//cout << "x:" << car.x << endl << "y:" << car.y << endl << car.name;
+	car.Display2();
+#endif
+
+	Student student("Chen", "123");
+	student.Display();
+
+	Food food;
+	food.SetN("apple");
+	food.SetM("114514");
+	cout << food.GetN() << endl << food.GetM() << endl;
+
+	Rectangle rect;
+	rect.setHeight(10);
+	rect.setWidth(20);
+	cout << rect.getArea() << endl;
+
+	Cat cat;
+	Dog dog;
+	cat.animalSound();
+	dog.animalSound();
 	return 0;
 }
