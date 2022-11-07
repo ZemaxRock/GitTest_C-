@@ -1,13 +1,19 @@
 #include <iostream>
 #include<string>
 #include<cmath>
+#include<fstream>
 //导入string库,c++字符串部分函数由此引用
 //数学库 sqrt() round()
+//文件操作相关的库
 
 using namespace std;
+
+#define EXCEPTION
+
 //常量
 #define PI = 3.1415926
 
+#ifdef OOP
 //函数
 int max(int num1, int num2) {
 	int result;
@@ -126,6 +132,7 @@ int One(int a, int b = 10) {
 			cout << "The dog: wang wang" << endl;
 		}
 	};
+#endif //OOP
 int main() {
 
 #pragma region BaseTest
@@ -203,7 +210,8 @@ int main() {
 	//cout << "x:" << car.x << endl << "y:" << car.y << endl << car.name;
 	car.Display2();
 #endif
-
+#pragma region OOP
+#ifdef OOP
 	Student student("Chen", "123");
 	student.Display();
 
@@ -221,5 +229,43 @@ int main() {
 	Dog dog;
 	cat.animalSound();
 	dog.animalSound();
+#endif //OOP
+#pragma endregion
+#ifdef FSTREAM
+	//创建并打开一个文本文件
+	ofstream MyFile("filename.txt");
+	//写入文件
+	for(int i = 0; i<10 ; i++)
+	MyFile << "Hello World"<<endl;
+	//关闭文件
+	MyFile.close();
+
+	// 创建一个文本字符串，用于输出文本文件
+	string myText;
+	// 从文本文件中读取
+	ifstream MyReadFile("filename.txt");
+	// 使用 while 循环和 getline() 函数逐行读取文件
+	while (getline(MyReadFile, myText)) {
+		// 从文件中输出文本
+		cout << myText<< endl;
+	}
+#endif //FSTREAM
+#ifdef EXCEPTION
+	int num;
+	try {
+		cin >> num;
+		if (num > 0) {
+			cout << "num为正" << endl;
+		}
+		else
+	//throw(myNum);
+	throw 505;
+	}
+	//catch(...)
+	catch (int myNum) {
+		cout << "error:" << myNum;
+	}
+
+#endif //EXCEPTION
 	return 0;
 }
